@@ -106,7 +106,7 @@ export default function Home() {
       </div>
 
       {/* Hero */}
-      <section className="min-h-[calc(100vh-40px)] flex items-center pt-16">
+      <section className="min-h-[calc(100vh-40px)] flex items-center pt-20">
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28 w-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text */}
@@ -165,24 +165,25 @@ export default function Home() {
                   className="absolute inset-0 w-full h-full"
                   aria-hidden
                 >
-                  {/* X strokes */}
-                  <line x1="60" y1="60" x2="360" y2="360" stroke="#1A56DB" strokeWidth="28" strokeLinecap="round" opacity="0.12" />
-                  <line x1="360" y1="60" x2="60" y2="360" stroke="#1A56DB" strokeWidth="28" strokeLinecap="round" opacity="0.12" />
-                  {/* Y strokes */}
-                  <line x1="210" y1="210" x2="210" y2="370" stroke="#fab600" strokeWidth="22" strokeLinecap="round" opacity="0.5" />
-                  <line x1="130" y1="80" x2="210" y2="210" stroke="#fab600" strokeWidth="22" strokeLinecap="round" opacity="0.5" />
-                  <line x1="290" y1="80" x2="210" y2="210" stroke="#fab600" strokeWidth="22" strokeLinecap="round" opacity="0.5" />
-                  {/* Accent circles */}
-                  <circle cx="210" cy="210" r="18" fill="#1A56DB" opacity="0.8" />
-                  <circle cx="210" cy="210" r="8" fill="#fab600" />
-                  <circle cx="60" cy="60" r="10" fill="#fab600" opacity="0.6" />
-                  <circle cx="360" cy="360" r="10" fill="#fab600" opacity="0.6" />
-                  <circle cx="360" cy="60" r="10" fill="#1A56DB" opacity="0.4" />
-                  <circle cx="60" cy="360" r="10" fill="#1A56DB" opacity="0.4" />
+                  {/* X strokes — blue, prominent */}
+                  <line x1="70" y1="70" x2="350" y2="350" stroke="#1A56DB" strokeWidth="32" strokeLinecap="round" opacity="0.55" />
+                  <line x1="350" y1="70" x2="70" y2="350" stroke="#1A56DB" strokeWidth="32" strokeLinecap="round" opacity="0.55" />
+                  {/* Y strokes — gold, on top */}
+                  <line x1="210" y1="210" x2="210" y2="370" stroke="#fab600" strokeWidth="26" strokeLinecap="round" opacity="0.9" />
+                  <line x1="120" y1="80" x2="210" y2="210" stroke="#fab600" strokeWidth="26" strokeLinecap="round" opacity="0.9" />
+                  <line x1="300" y1="80" x2="210" y2="210" stroke="#fab600" strokeWidth="26" strokeLinecap="round" opacity="0.9" />
+                  {/* Junction dot */}
+                  <circle cx="210" cy="210" r="20" fill="#1A56DB" />
+                  <circle cx="210" cy="210" r="9" fill="#fab600" />
+                  {/* Corner dots */}
+                  <circle cx="70" cy="70" r="10" fill="#fab600" opacity="0.8" />
+                  <circle cx="350" cy="350" r="10" fill="#fab600" opacity="0.8" />
+                  <circle cx="350" cy="70" r="10" fill="#1A56DB" opacity="0.7" />
+                  <circle cx="70" cy="350" r="10" fill="#1A56DB" opacity="0.7" />
                   {/* Grid dots */}
                   {[105, 210, 315].map((x) =>
                     [105, 210, 315].map((y) => (
-                      <circle key={`${x}-${y}`} cx={x} cy={y} r="3" fill="#2C2C2A" opacity="0.08" />
+                      <circle key={`${x}-${y}`} cx={x} cy={y} r="3" fill="#2C2C2A" opacity="0.1" />
                     ))
                   )}
                 </svg>
