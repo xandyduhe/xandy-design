@@ -118,7 +118,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4">
-              Popular packages
+              Packages
             </h2>
             <p className="text-[#9B9B99]">
               Transparent pricing. No surprises.{' '}
@@ -138,11 +138,6 @@ export default function Home() {
                     : 'bg-[#363634] border-[#3F3F3D] text-white'
                 }`}
               >
-                {popular && (
-                  <span className="absolute top-4 right-4 text-xs font-bold bg-[#fab600] text-[#2C2C2A] px-3 py-1 rounded-full uppercase tracking-wider">
-                    Most Popular
-                  </span>
-                )}
                 <p className="text-sm font-semibold text-[#fab600] mb-2 uppercase tracking-widest">
                   {name}
                 </p>

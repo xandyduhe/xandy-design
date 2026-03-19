@@ -143,11 +143,6 @@ export default function Services() {
                       : 'border-[#E5E2D9] bg-white text-[#2C2C2A]'
                   }`}
                 >
-                  {popular && (
-                    <span className="absolute top-4 right-4 text-xs font-bold bg-[#fab600] text-[#2C2C2A] px-3 py-1 rounded-full uppercase tracking-wider">
-                      Most Popular
-                    </span>
-                  )}
                   <div className="mb-6">
                     <p className={`text-xs font-semibold tracking-widest uppercase mb-3 ${popular ? 'text-blue-200' : 'text-[#6B6B69]'}`}>
                       {name}
