@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
@@ -19,11 +20,15 @@ export default function Nav() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5EE]/90 backdrop-blur-sm border-b border-[#E5E2D9]">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <span className="text-lg font-800 tracking-tight text-[#2C2C2A]">
-            X <span className="text-[#fab600]">&</span> Y
-          </span>
-          <span className="text-sm font-500 text-[#6B6B69] hidden sm:block">Design</span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/xandylogo.png"
+            alt="X & Y Design"
+            width={120}
+            height={48}
+            className="h-10 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}

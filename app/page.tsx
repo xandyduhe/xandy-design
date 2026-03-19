@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const services = [
   {
@@ -186,10 +187,16 @@ export default function Home() {
                   )}
                 </svg>
 
-                {/* Floating label */}
-                <div className="absolute bottom-8 right-4 bg-white border border-[#E5E2D9] rounded-xl px-4 py-3 shadow-sm">
-                  <p className="text-xs font-semibold text-[#6B6B69] uppercase tracking-widest">Built on</p>
-                  <p className="text-sm font-extrabold text-[#2C2C2A]">Psychology · Code · Art</p>
+                {/* Floating logo badge */}
+                <div className="absolute bottom-8 right-4 bg-white border border-[#E5E2D9] rounded-xl px-4 py-3 shadow-sm flex flex-col items-center gap-1">
+                  <Image
+                    src="/xandylogo.png"
+                    alt="X & Y Design"
+                    width={96}
+                    height={38}
+                    className="h-10 w-auto"
+                  />
+                  <p className="text-xs text-[#6B6B69] tracking-widest">Psychology · Code · Art</p>
                 </div>
               </div>
             </div>
