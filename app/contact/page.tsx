@@ -3,6 +3,9 @@ export const metadata = {
   description: 'Start a project with X & Y Design.',
 };
 
+const inputClass =
+  'w-full border border-[#E5E2D9] rounded-xl px-4 py-3 text-sm text-[#2C2C2A] bg-white placeholder:text-[#BDBBB3] focus:outline-none focus:border-[#1A56DB] transition-colors duration-200';
+
 export default function Contact() {
   return (
     <>
@@ -30,6 +33,7 @@ export default function Contact() {
                 method="POST"
                 className="space-y-6"
               >
+                {/* Name + Business */}
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-[#2C2C2A] mb-2">
@@ -40,7 +44,7 @@ export default function Contact() {
                       name="name"
                       required
                       placeholder="Your name"
-                      className="w-full border border-[#E5E2D9] rounded-xl px-4 py-3 text-sm text-[#2C2C2A] bg-white placeholder:text-[#BDBBB3] focus:outline-none focus:border-[#1A56DB] transition-colors duration-200"
+                      className={inputClass}
                     />
                   </div>
                   <div>
@@ -51,11 +55,12 @@ export default function Contact() {
                       type="text"
                       name="business"
                       placeholder="Your business"
-                      className="w-full border border-[#E5E2D9] rounded-xl px-4 py-3 text-sm text-[#2C2C2A] bg-white placeholder:text-[#BDBBB3] focus:outline-none focus:border-[#1A56DB] transition-colors duration-200"
+                      className={inputClass}
                     />
                   </div>
                 </div>
 
+                {/* Email */}
                 <div>
                   <label className="block text-sm font-semibold text-[#2C2C2A] mb-2">
                     Email *
@@ -65,18 +70,32 @@ export default function Contact() {
                     name="email"
                     required
                     placeholder="you@yourbusiness.com"
-                    className="w-full border border-[#E5E2D9] rounded-xl px-4 py-3 text-sm text-[#2C2C2A] bg-white placeholder:text-[#BDBBB3] focus:outline-none focus:border-[#1A56DB] transition-colors duration-200"
+                    className={inputClass}
                   />
                 </div>
 
+                {/* Type of business */}
                 <div>
                   <label className="block text-sm font-semibold text-[#2C2C2A] mb-2">
-                    What are you looking for?
+                    Type of Business
                   </label>
-                  <select
-                    name="service"
-                    className="w-full border border-[#E5E2D9] rounded-xl px-4 py-3 text-sm text-[#2C2C2A] bg-white focus:outline-none focus:border-[#1A56DB] transition-colors duration-200"
-                  >
+                  <select name="business_type" className={inputClass}>
+                    <option value="">Select your industry...</option>
+                    <option>Restaurant / Food</option>
+                    <option>Real Estate</option>
+                    <option>Retail / Boutique</option>
+                    <option>Health / Wellness</option>
+                    <option>Professional Services</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                {/* Service */}
+                <div>
+                  <label className="block text-sm font-semibold text-[#2C2C2A] mb-2">
+                    Service Interested In
+                  </label>
+                  <select name="service" className={inputClass}>
                     <option value="">Select a service...</option>
                     <option>Brand Spark ($600–900)</option>
                     <option>Brand + Social Launch ($1,400–2,000)</option>
@@ -89,15 +108,30 @@ export default function Contact() {
                   </select>
                 </div>
 
+                {/* Budget */}
                 <div>
                   <label className="block text-sm font-semibold text-[#2C2C2A] mb-2">
-                    Tell me a bit more
+                    Budget Range
+                  </label>
+                  <select name="budget" className={inputClass}>
+                    <option value="">Select a range...</option>
+                    <option>Under $1,000</option>
+                    <option>$1,000–$3,000</option>
+                    <option>$3,000–$6,000</option>
+                    <option>Monthly retainer</option>
+                  </select>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-sm font-semibold text-[#2C2C2A] mb-2">
+                    Message
                   </label>
                   <textarea
                     name="message"
                     rows={5}
-                    placeholder="What's your business, what's the goal, and where are you right now?"
-                    className="w-full border border-[#E5E2D9] rounded-xl px-4 py-3 text-sm text-[#2C2C2A] bg-white placeholder:text-[#BDBBB3] focus:outline-none focus:border-[#1A56DB] transition-colors duration-200 resize-none"
+                    placeholder="Tell me about your business, your goals, and where you're at right now."
+                    className={`${inputClass} resize-none`}
                   />
                 </div>
 

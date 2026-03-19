@@ -9,7 +9,6 @@ const services = [
   {
     name: 'Brand + Social Launch',
     price: '$1,400–2,000',
-    popular: true,
     desc: 'Full brand identity plus a cohesive social media presence ready to post.',
   },
   {
@@ -37,53 +36,162 @@ const pillars = [
   },
 ];
 
+const projects = [
+  {
+    title: 'Oakwood Bistro',
+    service: 'Brand Identity',
+    desc: 'Full visual identity for a neighborhood restaurant — logo, palette, menu design, and signage system.',
+    bg: '#1A56DB',
+    accent: '#fab600',
+    shape: 'circle',
+  },
+  {
+    title: 'Summit Realty',
+    service: 'Website + Brand',
+    desc: 'Custom website and brand identity built to convert leads before the first showing.',
+    bg: '#2C2C2A',
+    accent: '#fab600',
+    shape: 'cross',
+  },
+  {
+    title: 'Bloom Wellness',
+    service: 'Social Media',
+    desc: 'Cohesive social presence and content system for a wellness studio — 20 templates, full style guide.',
+    bg: '#fab600',
+    accent: '#1A56DB',
+    shape: 'diamond',
+  },
+];
+
+function GeoShape({ shape, accent }: { shape: string; accent: string }) {
+  if (shape === 'circle') {
+    return (
+      <svg viewBox="0 0 120 120" className="w-full h-full" aria-hidden>
+        <circle cx="60" cy="60" r="45" fill="none" stroke={accent} strokeWidth="8" opacity="0.6" />
+        <circle cx="60" cy="60" r="22" fill={accent} opacity="0.25" />
+        <line x1="15" y1="60" x2="105" y2="60" stroke={accent} strokeWidth="3" opacity="0.4" />
+        <line x1="60" y1="15" x2="60" y2="105" stroke={accent} strokeWidth="3" opacity="0.4" />
+      </svg>
+    );
+  }
+  if (shape === 'cross') {
+    return (
+      <svg viewBox="0 0 120 120" className="w-full h-full" aria-hidden>
+        <rect x="50" y="15" width="20" height="90" rx="4" fill={accent} opacity="0.5" />
+        <rect x="15" y="50" width="90" height="20" rx="4" fill={accent} opacity="0.5" />
+        <rect x="40" y="40" width="40" height="40" rx="6" fill={accent} opacity="0.3" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 120 120" className="w-full h-full" aria-hidden>
+      <polygon points="60,10 110,60 60,110 10,60" fill="none" stroke={accent} strokeWidth="7" opacity="0.6" />
+      <polygon points="60,30 90,60 60,90 30,60" fill={accent} opacity="0.25" />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <>
+      {/* Urgency banner */}
+      <div className="bg-[#fab600] text-[#2C2C2A] text-center py-2.5 px-4">
+        <p className="text-sm font-semibold">
+          Now accepting new clients for April — 2 spots remaining.{' '}
+          <Link href="/contact" className="underline underline-offset-2 hover:opacity-70 transition-opacity">
+            Claim yours →
+          </Link>
+        </p>
+      </div>
+
       {/* Hero */}
-      <section className="min-h-screen flex items-center pt-16">
-        <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-          <div className="max-w-4xl">
-            <div className="flex items-center gap-3 mb-8">
-              <span className="w-8 h-px bg-[#fab600]" />
-              <span className="text-sm font-semibold text-[#6B6B69] tracking-widest uppercase">
-                Marketing Design Studio
-              </span>
+      <section className="min-h-[calc(100vh-40px)] flex items-center pt-16">
+        <div className="max-w-6xl mx-auto px-6 py-20 md:py-28 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Text */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <span className="w-8 h-px bg-[#fab600]" />
+                <span className="text-sm font-semibold text-[#6B6B69] tracking-widest uppercase">
+                  Marketing Design Studio
+                </span>
+              </div>
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#2C2C2A] leading-[1.05] tracking-tight mb-8">
+                Most designers make{' '}
+                <em className="not-italic text-[#6B6B69]">things look pretty.</em>
+                <br />
+                <span className="text-[#1A56DB]">X & Y Design</span> makes things{' '}
+                <span className="relative inline-block">
+                  work.
+                  <span
+                    className="absolute bottom-1 left-0 w-full h-3 bg-[#fab600] -z-10 opacity-40"
+                    aria-hidden
+                  />
+                </span>
+              </h1>
+
+              <p className="text-lg text-[#6B6B69] max-w-xl leading-relaxed mb-10">
+                Built on psychology, powered by code, finished with art. For local businesses
+                that are ready to look as serious as they are.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-[#1A56DB] text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-[#1548c4] transition-colors duration-200"
+                >
+                  Start a Project →
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center justify-center gap-2 border border-[#E5E2D9] text-[#2C2C2A] px-8 py-4 rounded-full font-semibold text-base hover:border-[#2C2C2A] transition-colors duration-200"
+                >
+                  See Packages & Pricing
+                </Link>
+              </div>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#2C2C2A] leading-[1.05] tracking-tight mb-8">
-              Most designers make{' '}
-              <em className="not-italic text-[#6B6B69]">things look pretty.</em>
-              <br />
-              <span className="text-[#1A56DB]">X & Y Design</span> makes things{' '}
-              <span className="relative inline-block">
-                work.
-                <span
-                  className="absolute bottom-1 left-0 w-full h-3 bg-[#fab600] -z-10 opacity-40"
+            {/* Hero geometric */}
+            <div className="relative hidden lg:flex items-center justify-center">
+              <div className="relative w-[420px] h-[420px]">
+                {/* Background circle */}
+                <div className="absolute inset-0 rounded-full bg-[#1A56DB] opacity-5" />
+
+                {/* Large X */}
+                <svg
+                  viewBox="0 0 420 420"
+                  className="absolute inset-0 w-full h-full"
                   aria-hidden
-                />
-              </span>
-            </h1>
+                >
+                  {/* X strokes */}
+                  <line x1="60" y1="60" x2="360" y2="360" stroke="#1A56DB" strokeWidth="28" strokeLinecap="round" opacity="0.12" />
+                  <line x1="360" y1="60" x2="60" y2="360" stroke="#1A56DB" strokeWidth="28" strokeLinecap="round" opacity="0.12" />
+                  {/* Y strokes */}
+                  <line x1="210" y1="210" x2="210" y2="370" stroke="#fab600" strokeWidth="22" strokeLinecap="round" opacity="0.5" />
+                  <line x1="130" y1="80" x2="210" y2="210" stroke="#fab600" strokeWidth="22" strokeLinecap="round" opacity="0.5" />
+                  <line x1="290" y1="80" x2="210" y2="210" stroke="#fab600" strokeWidth="22" strokeLinecap="round" opacity="0.5" />
+                  {/* Accent circles */}
+                  <circle cx="210" cy="210" r="18" fill="#1A56DB" opacity="0.8" />
+                  <circle cx="210" cy="210" r="8" fill="#fab600" />
+                  <circle cx="60" cy="60" r="10" fill="#fab600" opacity="0.6" />
+                  <circle cx="360" cy="360" r="10" fill="#fab600" opacity="0.6" />
+                  <circle cx="360" cy="60" r="10" fill="#1A56DB" opacity="0.4" />
+                  <circle cx="60" cy="360" r="10" fill="#1A56DB" opacity="0.4" />
+                  {/* Grid dots */}
+                  {[105, 210, 315].map((x) =>
+                    [105, 210, 315].map((y) => (
+                      <circle key={`${x}-${y}`} cx={x} cy={y} r="3" fill="#2C2C2A" opacity="0.08" />
+                    ))
+                  )}
+                </svg>
 
-            <p className="text-lg md:text-xl text-[#6B6B69] max-w-2xl leading-relaxed mb-12">
-              Built on psychology, powered by code, finished with art. For local businesses
-              that are ready to look as serious as they are.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#1A56DB] text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-[#1548c4] transition-colors duration-200"
-              >
-                Start a Project
-                <span className="text-lg">→</span>
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center gap-2 border border-[#E5E2D9] text-[#2C2C2A] px-8 py-4 rounded-full font-semibold text-base hover:border-[#2C2C2A] transition-colors duration-200"
-              >
-                See Packages & Pricing
-              </Link>
+                {/* Floating label */}
+                <div className="absolute bottom-8 right-4 bg-white border border-[#E5E2D9] rounded-xl px-4 py-3 shadow-sm">
+                  <p className="text-xs font-semibold text-[#6B6B69] uppercase tracking-widest">Built on</p>
+                  <p className="text-sm font-extrabold text-[#2C2C2A]">Psychology · Code · Art</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -113,6 +221,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Selected Projects */}
+      <section className="py-24 border-t border-[#E5E2D9]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex items-end justify-between mb-16">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#2C2C2A] tracking-tight mb-3">
+                Selected Projects
+              </h2>
+              <p className="text-[#6B6B69]">A sample of what's possible.</p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {projects.map(({ title, service, desc, bg, accent, shape }) => (
+              <div key={title} className="group flex flex-col rounded-2xl overflow-hidden border border-[#E5E2D9]">
+                {/* Tile */}
+                <div
+                  className="h-52 flex items-center justify-center p-10"
+                  style={{ backgroundColor: bg }}
+                >
+                  <div className="w-28 h-28 opacity-80">
+                    <GeoShape shape={shape} accent={accent} />
+                  </div>
+                </div>
+                {/* Info */}
+                <div className="bg-white px-6 py-5 flex-1">
+                  <span
+                    className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3"
+                    style={{ backgroundColor: `${bg}18`, color: bg === '#fab600' ? '#2C2C2A' : bg }}
+                  >
+                    {service}
+                  </span>
+                  <h3 className="text-lg font-extrabold text-[#2C2C2A] mb-2">{title}</h3>
+                  <p className="text-sm text-[#6B6B69] leading-relaxed">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Featured packages */}
       <section className="py-24 bg-[#2C2C2A]">
         <div className="max-w-6xl mx-auto px-6">
@@ -129,22 +278,16 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {services.map(({ name, price, desc, popular }) => (
+            {services.map(({ name, price, desc }) => (
               <div
                 key={name}
-                className={`relative rounded-2xl p-8 border ${
-                  popular
-                    ? 'bg-[#1A56DB] border-[#1A56DB] text-white'
-                    : 'bg-[#363634] border-[#3F3F3D] text-white'
-                }`}
+                className="rounded-2xl p-8 border bg-[#363634] border-[#3F3F3D] text-white"
               >
                 <p className="text-sm font-semibold text-[#fab600] mb-2 uppercase tracking-widest">
                   {name}
                 </p>
                 <p className="text-3xl font-extrabold mb-4">{price}</p>
-                <p className={`text-sm leading-relaxed ${popular ? 'text-blue-100' : 'text-[#9B9B99]'}`}>
-                  {desc}
-                </p>
+                <p className="text-sm leading-relaxed text-[#9B9B99]">{desc}</p>
               </div>
             ))}
           </div>
