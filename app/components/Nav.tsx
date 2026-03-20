@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import XYLogo from './XYLogo';
 import { useState } from 'react';
 
 const links = [
@@ -20,15 +20,16 @@ export default function Nav() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5EE]/90 backdrop-blur-sm border-b border-[#E5E2D9]">
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/xandylogo.png"
-            alt="X & Y Design"
-            width={160}
-            height={64}
-            className="h-14 w-auto"
-            priority
-          />
+        <Link href="/" className="flex items-center gap-3 group">
+          <XYLogo size={44} />
+          <span className="flex flex-col leading-tight">
+            <span className="text-[15px] font-extrabold text-[#2C2C2A] tracking-tight group-hover:text-[#1A56DB] transition-colors">
+              X & Y Design
+            </span>
+            <span className="text-[10px] font-semibold text-[#6B6B69] tracking-widest uppercase">
+              Marketing Studio
+            </span>
+          </span>
         </Link>
 
         {/* Desktop nav */}

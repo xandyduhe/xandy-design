@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import XYLogo from './components/XYLogo';
 
 const services = [
   {
@@ -190,13 +190,7 @@ export default function Home() {
 
                 {/* Floating logo badge */}
                 <div className="absolute bottom-8 right-4 bg-white border border-[#E5E2D9] rounded-xl px-4 py-3 shadow-sm flex flex-col items-center gap-1">
-                  <Image
-                    src="/xandylogo.png"
-                    alt="X & Y Design"
-                    width={96}
-                    height={38}
-                    className="h-10 w-auto"
-                  />
+                  <XYLogo size={52} />
                   <p className="text-xs text-[#6B6B69] tracking-widest">Psychology · Code · Art</p>
                 </div>
               </div>
